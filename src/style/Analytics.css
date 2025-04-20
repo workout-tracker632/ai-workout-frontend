@@ -1,0 +1,120 @@
+/* src/style/Analytics.css */
+
+:root {
+    --primary: #c11325;
+    --secondary: #4bc0c0;
+    --bg: #fff;
+    --text: #333;
+    --card-bg: #fafafa;
+    --shadow: rgba(0,0,0,0.1);
+    --transition: 0.4s ease;
+  }
+  
+  /* Container & Title */
+  .analytics-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow);
+    animation: fadeIn 0.6s var(--transition);
+  }
+  .analytics-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+  
+  /* Charts Wrapper */
+  .charts-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .chart-card {
+    flex: 1;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+    animation: slideInUp 0.6s var(--transition);
+  }
+  
+  /* Completion Section */
+  .completion-section {
+    margin-top: 2rem;
+    animation: slideInUp 0.6s var(--transition);
+  }
+  .completion-section h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+  }
+  
+  /* Table Styling */
+  .completion-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .completion-table th,
+  .completion-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  .completion-table th {
+    background: var(--card-bg);
+    font-weight: 600;
+  }
+  .completion-table tr:nth-child(even) {
+    background: #f7f7f7;
+  }
+  .completion-table tr:hover {
+    background: #f0f0f0;
+  }
+  
+  /* No Schedule Message */
+  .no-schedule {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text);
+    animation: fadeIn 0.6s var(--transition);
+    margin: 2rem 0;
+  }
+  
+  /* Loading & Error */
+  .analytics-loading,
+  .analytics-error {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: var(--primary);
+    animation: fadeIn 0.6s var(--transition);
+  }
+  .day-filter {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .day-title {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #222;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  

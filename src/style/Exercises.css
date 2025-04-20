@@ -1,0 +1,148 @@
+/* src/style/Exercises.css */
+
+:root {
+    --primary: #C11325;
+    --text-dark: #333;
+    --bg-overlay: rgba(0,0,0,0.6);
+    --transition: 0.3s ease;
+  }
+  
+  /* Page Container */
+  .exercises-page {
+    padding: 4rem 2rem;
+    text-align: center;
+    animation: fadeIn 0.8s var(--transition);
+  }
+  .exercises-page h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Grid of Cards */
+  .exercises-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  }
+  
+  .exercise-card {
+    position: relative;
+    padding-top: 75%;  /* 4:3 aspect ratio */
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .exercise-card h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+  
+  /* Card Background Images */
+  .exercise-card.item-1 {
+    background-image: url('../components/assets/pushup.jpg');
+  }
+  .exercise-card.item-2 {
+    background-image: url('../components/assets/squat.jpg');
+  }
+  .exercise-card.item-3 {
+    background-image: url('../components/assets/bicep_curl.webp');
+  }
+  .exercise-card.item-4 {
+    background-image: url('../components/assets/shoulder_press.jpeg');
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--bg-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s var(--transition);
+  }
+  
+  /* Modal Window */
+  .modal {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    text-align: left;
+    animation: slideDown 0.4s var(--transition);
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .modal h2 {
+    margin-top: 1rem;
+    font-size: 1.75rem;
+  }
+  .modal p {
+    margin: 0.75rem 0;
+    line-height: 1.5;
+  }
+  
+  /* Modal Image (via CSS) */
+  .modal-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  .modal-image.item-1 {
+    background-image: url('../components/assets/pushup.jpg');
+  }
+  .modal-image.item-2 {
+    background-image: url('../components/assets/squat.jpg');
+  }
+  .modal-image.item-3 {
+    background-image: url('../components/assets/bicep_curl.webp');
+  }
+  .modal-image.item-4 {
+    background-image: url('../components/assets/shoulder_press.jpeg');
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .modal { padding: 1.5rem; }
+    .modal-image { height: 150px; }
+  }
+  

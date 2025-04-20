@@ -1,0 +1,122 @@
+/* src/style/Navbar.css */
+
+/* Color Variables */
+:root {
+  --primary: #c11325;
+  --primary-dark: #a00f1f;
+  --bg: #ffffff;
+  --text: #333333;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Container */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* Logo */
+.navbar .logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+.navbar .logo span {
+  color: var(--primary);
+}
+
+/* Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Link & Button Styles */
+.nav-links a,
+.logout-btn {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover,
+.logout-btn:hover {
+  color: var(--primary);
+  background-color: var(--shadow);
+}
+
+.nav-links a.active {
+  color: var(--primary);
+}
+
+/* Hamburger (mobile only) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background-color: var(--text);
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive: Collapse menu under 768px */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--bg);
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    transform: translateX(100%);
+    box-shadow: -2px 4px 8px var(--shadow);
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+}
