@@ -3,6 +3,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode"; // Use a named import for jwtDecode.
 import { useNavigate } from "react-router-dom";
 import "../style/Login_Register.css";
+import BACKEND_HOST from "../config.js"
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,7 +18,7 @@ const Login = () => {
     try {
       // OAuth2PasswordRequestForm requires form-urlencoded data.
       const response = await axios.post(
-        "http://localhost:8000/login",
+        `${BACKEND_HOST}/login`,
         new URLSearchParams({ username, password }),
         { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
       );

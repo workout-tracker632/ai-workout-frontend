@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import "./VideoUpload.css";
+import "../style/VideoUpload.css";
+import BACKEND_HOST from "../config.js"
 
 const VideoUpload = () => {
   const [exercise, setExercise] = useState("Push Up");
@@ -41,13 +42,14 @@ const VideoUpload = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/analyze-video",
+        `${BACKEND_HOST}/analyze-video`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
           responseType: "blob"
         }
       );
+      
       // Blob is returned directly
       const blob = res.data;
       const url  = URL.createObjectURL(blob);

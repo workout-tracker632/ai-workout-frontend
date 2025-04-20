@@ -1,6 +1,7 @@
 // GymTracker.jsx
 import React, { useState, useRef } from 'react';
 import '../style/Gym_Live.css'
+import BACKEND_HOST from "../config.js"
 
 
 const GymTracker = () => {
@@ -10,7 +11,7 @@ const GymTracker = () => {
   const wsRef = useRef(null);
 
   const startRecording = () => {
-    const ws = new WebSocket('ws://localhost:8000/ws/auto-classify');
+    const ws = new WebSocket(`ws://${BACKEND_HOST}/ws/auto-classify`);
     ws.onopen = () => console.log('WebSocket connection opened');
     ws.onmessage = (event) => {
       const msg = JSON.parse(event.data);

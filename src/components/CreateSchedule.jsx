@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../style/CreateSchedule.css";
+import BACKEND_HOST from "../config.js"
 
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const exercises = ["Push Up", "Squat", "Bicep Curl", "Shoulder Press"];
@@ -16,7 +17,7 @@ const CreateSchedule = () => {
   useEffect(() => {
     if (!username) return;
 
-    axios.get(`http://localhost:8000/schedule/${username}`)
+    axios.get(`${BACKEND_HOST}/schedule/${username}`)
       .then(resp => {
         const data = resp.data;
         if (Array.isArray(data) && data.length > 0) {
@@ -48,7 +49,7 @@ const CreateSchedule = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/schedule", {
+      await axios.post(`${BACKEND_HOST}/schedule`, {
         username,
         schedule: rows,
       });

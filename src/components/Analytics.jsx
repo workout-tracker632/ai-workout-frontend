@@ -13,6 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import "../style/Analytics.css";
+import BACKEND_HOST from "../config.js"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -44,7 +45,7 @@ const Analytics = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/analytics/${username}`);
+        const res = await axios.get(`${BACKEND_HOST}/analytics/${username}`);
         setAnalyticsCounts(res.data.counts || []);
         setSchedule(res.data.schedule || []);
         console.log("Analytics data:", res.data);
